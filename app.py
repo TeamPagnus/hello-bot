@@ -29,18 +29,15 @@ def process_message():
 
     chat_id = update.message.chat.id
     msg_id = update.message.message_id    
-    telegram_bot.sendMessage(chat_id=chat_id, text="HELLO", reply_to_message_id=msg_id)
-    print("ttt")
+    telegram_bot.sendMessage(chat_id=chat_id, text="Hello World!")
     return 'ok'
 
 @app.route('/setwebhook', methods=['GET', 'POST'])
 def set_webhook():
-    s = telegram_bot.setWebhook(f'{BOT_URL}{BOT_TOKEN}')
-
-    if s:
-        return "SETUP OK"
+    if telegram_bot.setWebhook(f'{BOT_URL}{BOT_TOKEN}'):
+        return "OK"
     else:
-        return "SETUP FAILED"
+        return "FAILED"
 
 if __name__ == '__main__':
     app.run(threaded=True)
