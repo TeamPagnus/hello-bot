@@ -3,8 +3,17 @@ import telegram
 import os
 
 # Get secrets from enviroment variable
+
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 BOT_URL = os.getenv("BOT_URL")
+
+if not BOT_TOKEN:
+    print("BOT_TOKEN do not defined")
+    exit()
+
+if not BOT_URL:
+    print("BOT_URL do not defined")
+    exit()
 
 bot = telegram.Bot(token=BOT_TOKEN)
 
