@@ -23,7 +23,7 @@ app = Flask(__name__)
 def index():
     return '.'
 
-@app.route(f'/{BOT_TOKEN}')
+@app.route(f'/{BOT_TOKEN}', methods=['GET', 'POST'])
 def process_message():
     update = telegram.Update.de_json(request.get_json(force=True), telegram_bot)
 
