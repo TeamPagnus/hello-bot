@@ -30,7 +30,7 @@ def process_message():
     chat_id = update.message.chat.id
     msg_id = update.message.message_id    
     telegram_bot.sendMessage(chat_id=chat_id, text="HELLO", reply_to_message=msg_id)
-
+    print("ttt")
     return 'ok'
 
 @app.route('/setwebhook', methods=['GET', 'POST'])
