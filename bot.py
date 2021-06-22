@@ -10,6 +10,10 @@ bot = telegram.Bot(token=BOT_TOKEN)
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return '.'
+
 @app.route(f'/{BOT_TOKEN}')
 def process_message():
     update = telegram.Update.de_json(request.get_json(force=True), bot)
@@ -29,9 +33,6 @@ def set_webhook():
     else:
         return "SETUP FAILED"
 
-@app.route('/')
-def index():
-    return '.'
-
 if __name__ == '__main__':
     app.run(threaded=True)
+    app.debug = True
