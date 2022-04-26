@@ -1,2 +1,2 @@
 # hello-bot
-A template for create telegram bots
+A template for creating telegram bots
